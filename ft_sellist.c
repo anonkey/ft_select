@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/09 20:20:40 by tseguier          #+#    #+#             */
-/*   Updated: 2014/10/13 12:41:55 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 13:22:10 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ size_t			ft_refreshpos(t_ldcd sellist, t_term term)
 	y = 0;
 	iter = sellist->head;
 	colsize = ft_getcolsize(iter);
-	if (0 == (linesize = (term->co / colsize - 1)))
+	if (0 == (linesize = (term->co / colsize)))
 		return (0);
-	linesize = ft_ldcdsize(sellist) / linesize;
+	linesize = ft_ldcdsize(sellist) / linesize + 1;
 	while (iter)
 	{
 		S_ELEM_CONT(iter, x) = x;

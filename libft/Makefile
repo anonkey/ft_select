@@ -1,7 +1,7 @@
 ifeq ($(GCC), 1)
     CC = gcc
 else
-    CC = clang
+    CC = llvm-gcc
 endif
 ifeq ($(DEBUG), 1)
     CFLAGS = -Wall -Wextra -Werror -ggdb3

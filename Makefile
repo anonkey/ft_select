@@ -6,14 +6,14 @@
 #    By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/08 22:38:59 by tseguier          #+#    #+#              #
-#    Updated: 2014/05/24 02:43:21 by tseguier         ###   ########.fr        #
+#    Updated: 2014/10/13 14:01:46 by tseguier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
-CFLAGS = -g -pedantic -std=c89 -Wall -Wextra -Werror
+CC = llvm-gcc
+CFLAGS = -g -Wall -Wextra -Werror
 LIBDIR = ./libft
-INCDIR = ./inc
+INCDIR = ./libft/headers
 LIBF = -ltermcap -lft
 NAME = ft_select
 SRC = main.c \
