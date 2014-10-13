@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/01 05:34:37 by tseguier          #+#    #+#             */
-/*   Updated: 2014/05/02 15:57:07 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 10:34:31 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@
 #define TAB_ERR_SIZE 13
 #define ERR_MSG_SIZE_MAX 64
 
-extern const char *		const		sys_errlist[];
-
-static const char		ft_errortab[TAB_ERR_SIZE][ERR_MSG_SIZE_MAX] =
+static const char		g_errortab[TAB_ERR_SIZE][ERR_MSG_SIZE_MAX] =
 {
 	"Unknown error",
 	"Not enough memory",
@@ -37,10 +35,9 @@ static const char		ft_errortab[TAB_ERR_SIZE][ERR_MSG_SIZE_MAX] =
 	"Terminal not fully fonctionnal"
 };
 
-
 void	ft_perror(const char *prog, const char *s, int errnum, int type)
 {
-	char const		*error;
+	const char	*error;
 
 	if (errnum >= TAB_ERR_SIZE)
 		errnum = 0;
@@ -49,7 +46,7 @@ void	ft_perror(const char *prog, const char *s, int errnum, int type)
 		ft_putstr_fd(prog, 2);
 		ft_putstr_fd(" : ", 2);
 	}
-	error = (type > 1) ? ft_errortab[errnum] : (char *)sys_errlist[errnum];
+	error = (type > 1) ? g_errortab[errnum] : (char *)sys_errlist[errnum];
 	ft_putstr_fd(error, 2);
 	if (s)
 	{
@@ -60,5 +57,3 @@ void	ft_perror(const char *prog, const char *s, int errnum, int type)
 	if (type % 2 == 0)
 		exit(1);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/09 20:29:57 by tseguier          #+#    #+#             */
-/*   Updated: 2014/01/12 02:35:16 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 11:43:06 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,3 @@ void		ft_selelem_del(t_selelem *elem_p, int delstr)
 		ft_strdel(&((*elem_p)->str));
 	ft_memdel((void **)elem_p);
 }
-

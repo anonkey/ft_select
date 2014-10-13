@@ -6,12 +6,12 @@
 #    By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/08 22:38:59 by tseguier          #+#    #+#              #
-#    Updated: 2014/01/12 01:11:19 by tseguier         ###   ########.fr        #
+#    Updated: 2014/05/24 02:43:21 by tseguier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror
+CFLAGS = -g -pedantic -std=c89 -Wall -Wextra -Werror
 LIBDIR = ./libft
 INCDIR = ./inc
 LIBF = -ltermcap -lft

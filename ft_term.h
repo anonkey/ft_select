@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/08 22:19:35 by tseguier          #+#    #+#             */
-/*   Updated: 2014/01/12 07:01:26 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 12:32:26 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,37 +36,38 @@ typedef struct		s_term
 	int				co;
 	struct termios	term_p;
 	struct termios	term_pbak;
-}					*t_term;
+}					t_sterm;
 
-int			ft_putintchar(int c);
+typedef t_sterm		*t_term;
 
-t_term		ft_termnew(void);
+int					ft_putintchar(int c);
 
-void		ft_termdel(t_term *term);
+t_term				ft_termnew(void);
 
-void		ft_termclear(t_term term);
+void				ft_termdel(t_term *term);
 
-void		ft_term_curon(t_term term);
+void				ft_termclear(t_term term);
 
-void		ft_term_curoff(t_term term);
+void				ft_term_curon(t_term term);
 
-void		ft_term_ulon(t_term term);
+void				ft_term_curoff(t_term term);
 
-void		ft_term_uloff(t_term term);
+void				ft_term_ulon(t_term term);
 
-void		ft_term_rvon(t_term term);
+void				ft_term_uloff(t_term term);
 
-void		ft_term_rvoff(t_term term);
+void				ft_term_rvon(t_term term);
 
-void		ft_term_ascron(t_term term);
+void				ft_term_rvoff(t_term term);
 
-void		ft_term_ascroff(t_term term);
+void				ft_term_ascron(t_term term);
 
-int			ft_termnoncanon(t_term term);
+void				ft_term_ascroff(t_term term);
 
-int			ft_termcanon(t_term term);
+int					ft_termnoncanon(t_term term);
 
-int			ft_termsigon(t_term term);
+int					ft_termcanon(t_term term);
 
-#endif /* !FT_TERM_H */
+int					ft_termsigon(t_term term);
 
+#endif

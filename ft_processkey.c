@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/10 01:10:31 by tseguier          #+#    #+#             */
-/*   Updated: 2014/05/02 15:58:25 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 12:44:24 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@
 
 static int		ft_sigh_treat(t_term term, char c, int kill)
 {
-	char		buff[2] = "\0";
+	char	buff[2];
 
+	buff[1] = '\0';
 	ft_termclean(term);
 	buff[0] = c;
 	ioctl(0, TIOCSTI, buff);
@@ -38,7 +39,7 @@ static int		ft_sigh_treat(t_term term, char c, int kill)
 	return (2);
 }
 
-static int			ft_deletepress(t_ldcd sellist, t_ldcd_cell *cur)
+static int		ft_deletepress(t_ldcd sellist, t_ldcd_cell *cur)
 {
 	t_selelem	elem;
 	t_ldcd_cell	temp;
@@ -58,7 +59,7 @@ static int			ft_deletepress(t_ldcd sellist, t_ldcd_cell *cur)
 	return ((*cur) ? 1 : 0);
 }
 
-int		ft_classickeypress(t_ldcd lst, t_key key, t_ldcd_cell *cur)
+int				ft_classickeypress(t_ldcd lst, t_key key, t_ldcd_cell *cur)
 {
 	if (!key || !lst || !cur)
 		return (-1);
@@ -71,7 +72,7 @@ int		ft_classickeypress(t_ldcd lst, t_key key, t_ldcd_cell *cur)
 	return (2);
 }
 
-int		ft_specialkeypress(t_ldcd lst, t_key key, t_ldcd_cell *cur)
+int				ft_specialkeypress(t_ldcd lst, t_key key, t_ldcd_cell *cur)
 {
 	if (!key || !lst || !cur)
 		return (-1);
@@ -82,23 +83,20 @@ int		ft_specialkeypress(t_ldcd lst, t_key key, t_ldcd_cell *cur)
 	return (2);
 }
 
-int			ft_processkey(t_key key, t_term term, t_ldcd lst, t_ldcd_cell *cur)
+int				ft_processkey(t_key key, t_term term, t_ldcd lst,
+								t_ldcd_cell *cur)
 {
-	int				status;
 	struct winsize	wins;
 
-	status = 2;
 	if (key[0] == '\254' && isatty(1))
 	{
 		signal(SIGTSTP, SIG_DFL);
 		ft_sigh_treat(term, term->term_p.c_cc[VSUSP], 0);
-	}
-	if (key[0] == '\254' && isatty(1))
 		ft_termrest(term, lst);
-	else if (key[0] == '\253')
-		return (ft_sigh_treat(term, term->term_p.c_cc[VKILL], 1));
-	else if (key[0] == '\252')
-		return (ft_sigh_treat(term, term->term_p.c_cc[VQUIT], 1));
+	}
+	else if (key[0] == '\253' || key[0] == '\252')
+		return (ft_sigh_treat(term, key[0] == '\253' ?
+		term->term_p.c_cc[VKILL] : term->term_p.c_cc[VQUIT], 1));
 	else if (key[0] == '\251')
 	{
 		ioctl(0, TIOCGWINSZ, &wins);
@@ -114,4 +112,3 @@ int			ft_processkey(t_key key, t_term term, t_ldcd lst, t_ldcd_cell *cur)
 		return (ft_specialkeypress(lst, key, cur));
 	return (2);
 }
-

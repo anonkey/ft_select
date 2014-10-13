@@ -6,13 +6,12 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/12 00:25:17 by tseguier          #+#    #+#             */
-/*   Updated: 2014/01/12 08:45:03 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 12:36:28 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_sellist.h"
 #include "libft.h"
-
 
 void	ft_getnextelem(t_ldcd list, t_ldcd_cell *cur, int rev)
 {
@@ -31,4 +30,3 @@ void	ft_getneighbors(t_ldcd list, t_ldcd_cell *cur, int rev)
 	while (ycur != S_ELEM_CONT((*cur), y))
 		ft_getnextelem(list, cur, rev);
 }
-

@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/29 08:29:51 by tseguier          #+#    #+#             */
-/*   Updated: 2014/01/10 04:29:33 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 11:52:55 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,4 @@
 
 void	ft_perror(const char *prog, const char *s, int errnum, int fatal);
 
-#endif /* !FT_ERROR_H */
-
+#endif

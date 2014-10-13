@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/09 20:20:40 by tseguier          #+#    #+#             */
-/*   Updated: 2014/05/02 15:58:45 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 12:41:55 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ft_sellist.h"
 #include "ft_term.h"
 
-size_t		ft_getcolsize(t_ldcd_cell cur)
+size_t			ft_getcolsize(t_ldcd_cell cur)
 {
 	size_t		colsize;
 	size_t		temp;
@@ -31,7 +31,7 @@ size_t		ft_getcolsize(t_ldcd_cell cur)
 	return (colsize + 3);
 }
 
-size_t		ft_refreshpos(t_ldcd sellist, t_term term)
+size_t			ft_refreshpos(t_ldcd sellist, t_term term)
 {
 	t_ldcd_cell	iter;
 	size_t		colsize;
@@ -43,7 +43,7 @@ size_t		ft_refreshpos(t_ldcd sellist, t_term term)
 	y = 0;
 	iter = sellist->head;
 	colsize = ft_getcolsize(iter);
-	if (0 == (linesize = (term->co / colsize) - 1))
+	if (0 == (linesize = (term->co / colsize - 1)))
 		return (0);
 	linesize = ft_ldcdsize(sellist) / linesize;
 	while (iter)
@@ -52,18 +52,13 @@ size_t		ft_refreshpos(t_ldcd sellist, t_term term)
 		S_ELEM_CONT(iter, y) = y;
 		iter = iter->next;
 		if (y + 1 >= linesize)
-		{
-			y = 0;
 			x += colsize;
-		}
-		else
-			++y;
+		y = (y + 1) % linesize;
 	}
 	return ((linesize > (size_t)term->li) ? 0 : colsize);
 }
 
-
-void	ft_putlist(t_ldcd sellist, t_term term)
+void			ft_putlist(t_ldcd sellist, t_term term)
 {
 	t_ldcd_cell	iter;
 	size_t		colsize;
@@ -91,7 +86,7 @@ void	ft_putlist(t_ldcd sellist, t_term term)
 	}
 }
 
-int		ft_selmove(t_ldcd sellist, t_ldcd_cell *cur, int key)
+int				ft_selmove(t_ldcd sellist, t_ldcd_cell *cur, int key)
 {
 	if (!sellist || !cur)
 		return (-1);
@@ -109,7 +104,7 @@ int		ft_selmove(t_ldcd sellist, t_ldcd_cell *cur, int key)
 	return (1);
 }
 
-int		ft_selchoose(t_ldcd sellist, t_ldcd_cell *cur)
+int				ft_selchoose(t_ldcd sellist, t_ldcd_cell *cur)
 {
 	if (!sellist || !cur)
 		return (-1);
@@ -120,4 +115,3 @@ int		ft_selchoose(t_ldcd sellist, t_ldcd_cell *cur)
 	ft_selmove(sellist, cur, DOWNKEYCODE);
 	return (1);
 }
-

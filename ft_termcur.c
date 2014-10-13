@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/09 21:22:28 by tseguier          #+#    #+#             */
-/*   Updated: 2014/01/12 08:50:22 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 12:32:35 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,3 @@ void	ft_term_curoff(t_term term)
 {
 	tputs(term->controls.curistr, 1, &ft_putintchar);
 }
-

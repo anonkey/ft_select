@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/12 00:40:12 by tseguier          #+#    #+#             */
-/*   Updated: 2014/05/02 15:58:06 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 12:04:44 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,3 @@ void	ft_sigcont(int sig)
 	if (sig)
 		signal(SIGTSTP, &ft_sigtstp);
 }
-
-

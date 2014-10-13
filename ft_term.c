@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/08 22:11:55 by tseguier          #+#    #+#             */
-/*   Updated: 2014/05/02 15:53:03 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 12:06:23 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "libft.h"
 #include "ft_term.h"
 
-int		ft_putintchar(int c)
+int			ft_putintchar(int c)
 {
 	int		fd;
 	char	chr;
@@ -82,5 +82,3 @@ void		ft_termclear(t_term term)
 {
 	tputs(term->controls.clstr, 1, &ft_putintchar);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/09 03:11:38 by tseguier          #+#    #+#             */
-/*   Updated: 2014/01/12 07:02:57 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 12:32:49 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,3 @@ void			ft_term_rvoff(t_term term)
 {
 	tputs(term->controls.rvestr, 1, &ft_putintchar);
 }
-

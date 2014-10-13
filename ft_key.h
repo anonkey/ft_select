@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/09 22:59:08 by tseguier          #+#    #+#             */
-/*   Updated: 2014/01/11 06:36:34 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 10:35:36 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,4 @@ ssize_t	ft_getkey(t_key key);
 
 char	ft_keycmp(t_key key1, t_key key2);
 
-#endif /* !FT_KEY_H */
+#endif

@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/08 21:01:53 by tseguier          #+#    #+#             */
-/*   Updated: 2014/05/02 15:56:29 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 12:36:19 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 #include "ft_execsuspend.h"
 #include "ft_error.h"
 #include "ft_sellist.h"
-
 
 t_ldcd		ft_parseargs(int argc, char **argv)
 {
@@ -55,7 +54,7 @@ t_ldcd		ft_parseargs(int argc, char **argv)
 	return (elst);
 }
 
-int		ft_terminit(t_term term)
+int			ft_terminit(t_term term)
 {
 	signal(SIGINT, &ft_sigint);
 	signal(SIGWINCH, &ft_sigwinch);
@@ -69,7 +68,8 @@ int		ft_terminit(t_term term)
 	ft_termclear(term);
 	return (0);
 }
-void	ft_exit(t_term term, t_ldcd list)
+
+void		ft_exit(t_term term, t_ldcd list)
 {
 	t_selelem	temp;
 
@@ -88,7 +88,7 @@ void	ft_exit(t_term term, t_ldcd list)
 	ft_termdel(&term);
 }
 
-void	ft_keyloop(t_term term, t_ldcd list)
+void		ft_keyloop(t_term term, t_ldcd list)
 {
 	int			status;
 	t_key		key;
@@ -109,7 +109,7 @@ void	ft_keyloop(t_term term, t_ldcd list)
 	}
 }
 
-int		main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	t_term		term;
 	t_ldcd		list;
@@ -128,4 +128,3 @@ int		main(int argc, char **argv)
 	ft_exit(term, list);
 	return (0);
 }
-

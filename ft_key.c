@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/10 00:11:46 by tseguier          #+#    #+#             */
-/*   Updated: 2014/01/11 23:20:00 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 10:35:55 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,3 @@ char	ft_keycmp(t_key key1, t_key key2)
 	}
 	return (key1[i] - key2[i]);
 }
-
-

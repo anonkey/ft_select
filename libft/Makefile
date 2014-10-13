@@ -1,100 +1,139 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2013/11/26 00:03:59 by tseguier          #+#    #+#              #
-#    Updated: 2014/01/10 02:53:01 by tseguier         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-CC = cc
-AR = ar
-CFLAGS = -Wall -Wextra -Werror
+ifeq ($(GCC), 1)
+    CC = gcc
+else
+    CC = clang
+endif
+ifeq ($(DEBUG), 1)
+    CFLAGS = -Wall -Wextra -Werror -ggdb3
+else
+    CFLAGS = -Wall -Wextra -Werror
+endif
 LDFLAGS = rc
 NAME = libft.a
-SRC = ft_memset.c \
-	ft_strcmp.c \
-	ft_bzero.c \
-	ft_memcpy.c \
-	ft_memccpy.c \
-	ft_memmove.c \
-	ft_memchr.c \
-	ft_memcmp.c \
-	ft_strlen.c \
-	ft_strdup.c \
-	ft_strcpy.c \
-	ft_strncpy.c \
-	ft_strchr.c \
-	ft_strrchr.c \
-	ft_strcat.c \
-	ft_strncat.c \
-	ft_strlcat.c \
-	ft_strstr.c \
-	ft_strncmp.c \
-	ft_strnstr.c \
-	ft_atoi.c \
-	ft_isalpha.c \
-	ft_isdigit.c \
-	ft_isalnum.c \
-	ft_isascii.c \
-	ft_isprint.c \
-	ft_toupper.c \
-	ft_tolower.c \
-	ft_memalloc.c \
-	ft_memdel.c \
-	ft_strnew.c \
-	ft_strdel.c \
-	ft_strclr.c \
-	ft_striter.c \
-	ft_striteri.c \
-	ft_strmap.c \
-	ft_strmapi.c \
-	ft_strequ.c \
-	ft_strnequ.c \
-	ft_strsub.c \
-	ft_strjoin.c \
-	ft_strtrim.c \
-	ft_strsplit.c \
-	ft_itoa.c \
-	ft_putchar.c \
-	ft_putstr.c \
-	ft_putendl.c \
-	ft_putnbr.c \
-	ft_putchar_fd.c \
-	ft_putstr_fd.c \
-	ft_putendl_fd.c \
-	ft_putnbr_fd.c \
-	ft_lstnew.c \
-	ft_lstdelone.c \
-	ft_lstdel.c \
-	ft_lstadd.c \
-	ft_lstiter.c \
-	ft_lstmap.c \
-	ft_ldcddel.c \
-	ft_ldcdpop_back.c \
-	ft_ldcdpush_front.c \
-	ft_ldcd_celldel.c \
-	ft_ldcditer.c \
-	ft_ldcdpop_front.c \
-	ft_ldcdpop.c \
-	ft_ldcdsize.c \
-	ft_ldcd_cellnew.c \
-	ft_ldcdnew.c \
-	ft_ldcdpush_back.c \
-	ft_ldcdat.c \
-	ft_ldcddel_head.c \
-	ft_ldcddel_tail.c \
-	ft_strcsub.c \
-	ft_strsepjoin.c \
-	ft_strtabcpy.c \
-	ft_strtabrealloc.c \
-	ft_strtabdel.c \
-	get_next_line.c
-
+SRC = btree/ft_btree.c \
+      btree/ft_btree_put.c \
+      chars/ft_isalnum.c \
+      chars/ft_isalpha.c \
+      chars/ft_isascii.c \
+      chars/ft_isdigit.c \
+      chars/ft_isprint.c \
+      chars/ft_tolower.c \
+      chars/ft_toupper.c \
+      dynstr/ft_dynstradd.c \
+      dynstr/ft_dynstrdel.c \
+      dynstr/ft_dynstrflush.c \
+      dynstr/ft_dynstrnew.c \
+      dynstr/ft_dynstrput.c \
+      inputs/ft_getchar.c \
+      inputs/get_next_line.c \
+      integers/ft_atoi_base.c \
+      integers/ft_atoi.c \
+      integers/ft_itoa.c \
+      ldcd/ft_ldcdat.c \
+      ldcd/ft_ldcd_celldel.c \
+      ldcd/ft_ldcd_cellnew.c \
+      ldcd/ft_ldcddel.c \
+      ldcd/ft_ldcddel_head.c \
+      ldcd/ft_ldcddel_tail.c \
+      ldcd/ft_ldcditer.c \
+      ldcd/ft_ldcdnew.c \
+      ldcd/ft_ldcdpop_back.c \
+      ldcd/ft_ldcdpop.c \
+      ldcd/ft_ldcdpop_front.c \
+      ldcd/ft_ldcdpush_back.c \
+      ldcd/ft_ldcdpush_front.c \
+      ldcd/ft_ldcdpush_sorted.c \
+      ldcd/ft_ldcdsize.c \
+      ldcd/ft_ldcdsize_ref.c \
+      ldcd/ft_putldcd.c \
+      lists/ft_lstadd.c \
+      lists/ft_lstdel.c \
+      lists/ft_lstdelone.c \
+      lists/ft_lstiter.c \
+      lists/ft_lstmap.c \
+      lists/ft_lstnew.c \
+      lists/ft_lstsize.c \
+      lists/ft_lsttotab.c \
+      memory/ft_bzero.c \
+      memory/ft_memalloc.c \
+      memory/ft_memccpy.c \
+      memory/ft_memchr.c \
+      memory/ft_memcmp.c \
+      memory/ft_memcpy.c \
+      memory/ft_memdel.c \
+      memory/ft_memdup.c \
+      memory/ft_memmove.c \
+      memory/ft_memset.c \
+      memory/ft_print_memory.c \
+      outputs/ft_putchar.c \
+      outputs/ft_putchar_fd.c \
+      outputs/ft_putdouble.c \
+      outputs/ft_putdouble_sci.c \
+      outputs/ft_putendl.c \
+      outputs/ft_putendl_fd.c \
+      outputs/ft_putldouble.c \
+      outputs/ft_putldouble_sci.c \
+      outputs/ft_putnbr_base.c \
+      outputs/ft_putnbr.c \
+      outputs/ft_putnbr_fd.c \
+      outputs/ft_putnbrhex.c \
+      outputs/ft_putnbr_len.c \
+      outputs/ft_putnbr_ll.c \
+      outputs/ft_putnbr_oct.c \
+      outputs/ft_putnbr_ulen.c \
+      outputs/ft_putnbr_ull.c \
+      outputs/ft_putstr.c \
+      outputs/ft_putstr_fd.c \
+      outputs/ft_putstr_len.c \
+      printf/ft_printf.c \
+      printf/ft_printfn.c \
+      printf/ft_readarg.c \
+      printf/ft_readautom.c \
+      printf/ft_readchar.c \
+      printf/ft_readfloat.c \
+      printf/ft_readfloat_len.c \
+      printf/ft_readint.c \
+      printf/ft_readint_len.c \
+      printf/ft_readpoint.c \
+      printf/ft_readstr.c \
+      string/ft_strcat.c \
+      string/ft_strchind.c \
+      string/ft_strchr.c \
+      string/ft_strclr.c \
+      string/ft_strcmp.c \
+      string/ft_strcpy.c \
+      string/ft_strcsub.c \
+      string/ft_strdel.c \
+      string/ft_strdup.c \
+      string/ft_strequ.c \
+      string/ft_striter.c \
+      string/ft_striteri.c \
+      string/ft_strjoin.c \
+      string/ft_strlcat.c \
+      string/ft_strlen.c \
+      string/ft_strmap.c \
+      string/ft_strmapi.c \
+      string/ft_strncat.c \
+      string/ft_strncmp.c \
+      string/ft_strncpy.c \
+      string/ft_strnequ.c \
+      string/ft_strnew.c \
+      string/ft_strnstr.c \
+      string/ft_strrchind.c \
+      string/ft_strrchr.c \
+      string/ft_strrev.c \
+      string/ft_strsepjoin.c \
+      string/ft_strsplit.c \
+      string/ft_strstr.c \
+      string/ft_strsub.c \
+      string/ft_strtabcpy.c \
+      string/ft_strtabdel.c \
+      string/ft_strtabrealloc.c \
+      string/ft_strtrim.c
 OBJ = $(SRC:.c=.o)
+	HEADERS = headers/
+	SRCDIR = srcs/
+
 
 all: $(NAME)
 
@@ -103,7 +142,7 @@ $(NAME): $(OBJ)
 	ranlib $(NAME)
 
 %.o: %.c
-	$(CC) -o $@ -c $< $(CFLAGS)
+	$(CC) -o $@ -c $< $(CFLAGS) -I$(HEADERS)
 
 .PHONY: clean fclean all re $(NAME)
 

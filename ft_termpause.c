@@ -6,7 +6,7 @@
 /*   By: tseguier <tseguier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/11 23:43:31 by tseguier          #+#    #+#             */
-/*   Updated: 2014/01/11 23:46:45 by tseguier         ###   ########.fr       */
+/*   Updated: 2014/10/13 12:33:42 by tseguier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,3 @@ void		ft_termrest(t_term term, t_ldcd lst)
 	ft_termclear(term);
 	ft_putlist(lst, term);
 }
-
